@@ -20,7 +20,7 @@ COPY passwd /root/.vnc/
 RUN chmod 600 /root/.vnc/passwd
 
 #install novnc
-RUN apt install git -y
+RUN apt install git procps -y
 RUN git clone https://github.com/novnc/noVNC.git
 
 
