@@ -24,6 +24,7 @@ RUN git clone https://github.com/novnc/noVNC.git
 #copy startup script
 RUN echo "startx && /usr/bin/vncserver && ./noVNC/utils/launch.sh --vnc 127.0.0.1:5901" > entrypoint.sh
 
+RUN chmod 777 entrypoint.sh
 
 EXPOSE 6080
 
