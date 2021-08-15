@@ -16,7 +16,7 @@ RUN apt install xinit --no-install-recommends -y
 RUN apt install tigervnc-standalone-server --no-install-recommends -y
 RUN mkdir /root/.vnc
 COPY passwd /root/.vnc/
-RUN chown root:root /root/.vnc/passwd
+#RUN chown root:root /root/.vnc/passwd
 RUN chmod 600 /root/.vnc/passwd
 
 #install novnc
