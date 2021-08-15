@@ -1,4 +1,6 @@
-startx
+#!/bin/sh
+
+/usr/bin/startx
 
 /usr/bin/vncserver
 
