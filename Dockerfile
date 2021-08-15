@@ -2,19 +2,20 @@ FROM debian:bullseye
 
 RUN apt update
 
-# install 
+# install openbox
 RUN apt install openbox -y --no-install-recommends
 
-COPY .xinitrc ./
-COPY autostart ./.config/openbox/
+COPY .xinitrc ~/
+COPY autostart ~/.config/openbox/
 
 # install virt-manager
 RUN apt install virt-manager -y --no-install-recommends
 
-#install tigervnc
-RUN apt install wget -y
-RUN wget -qO- https://sourceforge.net/projects/tigervnc/files/stable/1.11.0/tigervnc-1.11.0.x86_64.tar.gz | tar xz --strip 1 -C /
+#install tigervnc and x11
+RUN apt install xinit --no-install-recommends -y
+RUN apt install tigervnc-standalone-server --no-install-recommends -y
 RUN mkdir ~/.vnc
+COPY passwd ~/.vnc/
 
 #install novnc
 RUN apt install git -y
