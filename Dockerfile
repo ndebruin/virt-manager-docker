@@ -16,6 +16,8 @@ RUN apt install xinit --no-install-recommends -y
 RUN apt install tigervnc-standalone-server --no-install-recommends -y
 RUN mkdir ~/.vnc
 COPY passwd ~/.vnc/
+RUN chown root:root ~/.vnc/passwd 
+RUN chmod 600 ~/.vnc/passwd
 
 #install novnc
 RUN apt install git -y
@@ -24,8 +26,6 @@ RUN git clone https://github.com/novnc/noVNC.git
 
 #copy startup script
 COPY entrypoint.sh ./
-
-RUN chmod 777 entrypoint.sh
 
 EXPOSE 6080
 
