@@ -20,7 +20,7 @@ COPY passwd /root/.vnc/
 RUN chmod 600 /root/.vnc/passwd
 
 #install novnc
-RUN apt install git procps -y
+RUN apt install git procps curl -y
 RUN git clone https://github.com/novnc/noVNC.git
 
 
@@ -28,8 +28,12 @@ RUN git clone https://github.com/novnc/noVNC.git
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
+RUN apt clean
+
 EXPOSE 6080
 
-RUN apt clean
+STOPSIGNAL SIGTERM
+
+HEALTHCHECK --interval=1m --timeout=3s CMD curl --fail http://127.0.0.1:6080/vnc.html || exit 1
 
 CMD [ "/entrypoint.sh" ]
