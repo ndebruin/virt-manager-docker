@@ -25,7 +25,8 @@ RUN git clone https://github.com/novnc/noVNC.git
 
 
 #copy startup script
-COPY entrypoint.sh ./
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 6080
 
