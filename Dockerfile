@@ -5,8 +5,8 @@ RUN apt update
 # install openbox
 RUN apt install openbox -y --no-install-recommends
 
-COPY .xinitrc ~/
-COPY autostart ~/.config/openbox/
+COPY .xinitrc /root/
+COPY autostart /root/.config/openbox/
 
 # install virt-manager
 RUN apt install virt-manager -y --no-install-recommends
@@ -14,10 +14,10 @@ RUN apt install virt-manager -y --no-install-recommends
 #install tigervnc and x11
 RUN apt install xinit --no-install-recommends -y
 RUN apt install tigervnc-standalone-server --no-install-recommends -y
-RUN mkdir ~/.vnc
-COPY passwd ~/.vnc/
-RUN chown root:root ~/.vnc/*
-RUN chmod 600 ~/.vnc/*
+RUN mkdir /root/.vnc
+COPY passwd /root/.vnc/
+RUN chown root:root /root/.vnc/passwd
+RUN chmod 600 /root/.vnc/passwd
 
 #install novnc
 RUN apt install git -y
