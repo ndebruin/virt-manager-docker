@@ -31,4 +31,4 @@ EXPOSE 6080
 
 RUN apt clean
 
-CMD [ "./entrypoint.sh" ]
+CMD [ "/entrypoint.sh" ]
