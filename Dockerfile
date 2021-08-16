@@ -9,8 +9,7 @@ COPY .xinitrc /root/
 COPY autostart /root/.config/openbox/
 
 # install virt-manager
-RUN apt install virt-manager ssh-askpass virt-viewer -y
-RUN apt install xterm spice-client-gtk -y --no-install-recommends
+RUN apt install virt-manager openssh-client xterm -y
 
 #install tigervnc and x11
 RUN apt install xinit --no-install-recommends -y
