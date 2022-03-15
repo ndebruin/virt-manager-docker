@@ -10,4 +10,5 @@ Password for VNC is `123456`.
 
 Use the path `/vnc.html`.
 
-Container image is `registry.gitlab.draigon.org/ndebruin/virt-manager-docker:latest`
+Container image is `ghcr.io/ndebruin/virt-manager-docker:latest`
+
