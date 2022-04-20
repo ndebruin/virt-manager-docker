@@ -1,1 +1,2 @@
 virt-manager
+ssh-agent add /root/.ssh/*
